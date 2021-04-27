@@ -3,31 +3,211 @@
 #include<string.h>
 #include<windows.h>
 #include<stdlib.h>
+#include<math.h>
 
-int main()
+int main()  //打印乘法口诀表
 {
 	int i = 0;
-	char password[20] = { 0 };
-	for (i = 0; i < 3; i++)
+	//确定打印9行
+	for (i = 1; i <= 9; i++)
 	{
-		printf("请输入密码：>");
-		scanf("%s", password);
-		if (strcmp(password,"123456") == 0)//== 不能用来比较两个字符串是否相等，应该使用一个库函数-strcmp
+		int j = 1;
+		for (j = 1; j <= i; j++)
 		{
-			printf("登陆成功\n");
-			break;
+			printf("%d*%d=%-2d ", i, j, i * j);
 		}
-		else
-		{
-			printf("密码错误\n");
-		}
-
+		printf("\n");
 	}
-	if (i == 3)
-		printf("三次密码均错误，退出程序\n");
-
 	return 0;
 }
+//int main()  //求出数组的最大值的代码
+//{
+//	int arr[] = { -1,-2,-3,-4,-5,-6,-7,-8,-9,-10 };
+//	int max = arr[0];//最大值
+//	int i = 0;
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	for (i = 1; i < sz; i++)
+//	{
+//		if (arr[i] > max)
+//		{
+//			max = arr[i];
+//		}
+//	}
+//	printf("max = %d\n", max);
+//	return 0;
+//}
+//int main()  //求(1/1)-(1/2)+(1/3)-(1/4)+...+(1/99)-(1/100)
+//{
+//	int i = 0;
+//	double sum = 0.0;
+//	int flag = 1;
+//	for (i = 1; i <= 100; i++)
+//	{
+//		sum += flag * 1.0 / i;
+//		flag = -flag;
+//	}
+//	printf("%lf\n", sum);
+//	return 0;
+// }
+//int main()
+//{
+//	int i = 0;
+//	int count = 0;
+//	for (i = 1; i <= 100; i++)
+//	{
+//		if (i % 10 == 9)
+//			count++;
+//		if (i / 10 == 9)
+//			count++;
+//	}
+//	printf("count=%d\n", count);
+//	return 0;
+//}
+//int main()  //试除法求素数的优化(100-200之间）
+//{
+//	int i = 0;
+//	int count = 0;
+//	for (i = 101; i <= 200; i+=2)
+//	{
+//		int j = 0;
+//		for (j = 2; j <sqrt(i); j++)
+//		{
+//			if (i % j == 0)
+//			{
+//				break;
+//			}
+//		}
+//		if (j >sqrt(i))
+//		{
+//			count++;
+//			printf("%d ", i);
+//		}
+//	}
+//	printf("\n%d ", count);
+//
+//	return 0;
+//}
+//int main()  //试除法  求素数
+//{
+//	int i = 0;
+//	int count = 0;
+//	for (i = 100; i <= 200; i++)
+//	{
+//		int j = 0;
+//		for (j = 2; j < i; j++)
+//		{
+//			if (i % j == 0)
+//			{
+//				break;
+//			}
+//		}
+//		if (j == i)
+//		{
+//			count++;
+//			printf("%d ", i);
+//		}
+//	}
+//	printf("\n%d ", count);
+//
+//	return 0;
+//}
+//int main()//测试是否为闰年的代码
+//{
+//	int year = 0;
+//	int count = 0;
+//	for (year = 1000; year <= 2000; year++)
+//	{
+//		//判断year是否为闰年
+//		//1、能被4整除并且不能被100整除为闰年
+//		//2、能被400整除是闰年
+//		/*if (year % 4 == 0 && year % 100 != 0)
+//		{
+//			printf("%d", year);
+//			count++;
+//		}
+//		else if (year % 400 == 0)
+//		{
+//			printf("%d", year);
+//			count++;
+//		}*/
+//		if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
+//		{
+//			printf("%d ", year);
+//			count++;
+//		}
+//	}
+//	printf("\n%d", count);
+//	return 0;
+//}
+
+//int main()   //辗转相除法代码
+//{
+//	int m = 24;
+//	int n = 18;
+//	int r = 0;
+//	scanf("%d%d", &m, &n);
+//	while (m % n)
+//	{
+//		r = m % n;
+//		m = n;
+//		n = r;
+//	}
+//	printf("%d", n);
+//	return 0;
+//}
+//int main()  //三个数的从大到小排列
+//{
+//	int a = 0;
+//	int b = 0;
+//	int c = 0;
+//	scanf("%d%d%d", &a, &b, &c);
+//	//算法实现
+//	if (a < b)
+//	{
+//		int tmp = a;
+//		a = b;
+//		b = tmp;
+//	}
+//	if (a < c)
+//	{
+//		int tmp = a;
+//		a = c;
+//		c = tmp;
+//	 }
+//	if (b < c)
+//	{
+//		int tmp = b;
+//		b = c;
+//		c = tmp;
+//	}
+//	printf("%d%d%d\n", a, b, c);
+//	return 0;
+//}
+
+//int main()
+//{
+//	int i = 0;
+//	char password[20] = { 0 };
+//	for (i = 0; i < 3; i++)
+//	{
+//		printf("请输入密码：>");
+//		scanf("%s", password);
+//		if (strcmp(password,"123456") == 0)//== 不能用来比较两个字符串是否相等，应该使用一个库函数-strcmp
+//		{
+//			printf("登陆成功\n");
+//			break;
+//		}
+//		else
+//		{
+//			printf("密码错误\n");
+//		}
+//
+//	}
+//	if (i == 3)
+//		printf("三次密码均错误，退出程序\n");
+//
+//	return 0;
+//}
 //int main()// 多个字符从两端移动，向中间汇聚 的代码。
 //{
 //	char arr1[] = "welcome to bit!!!!!!";
