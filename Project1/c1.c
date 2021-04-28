@@ -5,7 +5,7 @@
 #include<stdlib.h>
 #include<math.h>
 
-更新
+
 
 int main()  //打印乘法口诀表
 {
