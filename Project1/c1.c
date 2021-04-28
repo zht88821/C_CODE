@@ -5,6 +5,8 @@
 #include<stdlib.h>
 #include<math.h>
 
+更新
+
 int main()  //打印乘法口诀表
 {
 	int i = 0;
