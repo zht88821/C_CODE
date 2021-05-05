@@ -54,15 +54,10 @@ int is_prime(int n)   //实现判断是否为素数的函数
 	for (m = 2; m < sqrt(n); m++)
 	{
 		if (n % m == 0)
-		{
-			break;
-		}
+			return 0;
 			
 	}
-	if (m > sqrt(n))7
 		return 1;
-	else
-		return 0;
 }
 
 int main()
