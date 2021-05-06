@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS 
 #include<stdio.h>
 #include<math.h>
+#include<string.h>
 
 //int get_max(int x, int y)
 //{
@@ -144,3 +145,101 @@
 //	return 0;
 //}
 //
+
+//void Add(int* p)//每次调用参数+1
+//{
+//	(*p)++;
+//}
+//
+//int main()
+//{
+//	int num = 0;
+//	Add(&num);
+//	printf("num = %d\n", num);  //1
+//	Add(&num);
+//	printf("num = %d\n", num);//2
+//	Add(&num);
+//	printf("num = %d\n", num);//3
+//	return 0;
+//}
+
+//void new_line()  
+//{
+//	printf("hehe\n");
+//}
+//void three_line()  //函数的嵌套调用
+//{
+//	int i = 0;
+//	for (i = 0; i < 3; i++)
+//	{
+//		new_line();
+//	}
+//}
+//int main()
+//{
+//	three_line();
+//	return 0;
+//}
+
+//int main()
+//{
+//	int len = 0;
+//	//1
+//	len = strlen("abc");
+//	printf("%d\n", len);
+//	//2
+//	printf("%d\n", strlen("abc"));//链式访问---将一个函数的返回值作为另一个函数的参数
+//	return 0;
+//}
+
+//int main()
+//{
+//	printf("%d", printf("%d", printf("%d", 43)));  //printf函数的返回值是打印的字符个数.
+//	return 0;
+//}
+
+//函数声明
+int Add(int, int);
+
+//int main()
+//{
+//	int a = 10;
+//	int b = 20;
+//	int sum = 0;
+//	//函数调用
+//	sum = Add(a, b);
+//	printf("%d\n", sum);
+//	return 0;
+//}
+//
+////函数的定义
+//int Add(int x, int y)
+//{
+//	int z = x + y;
+//	return z;
+//}
+
+//#include"add.h"
+//int main()
+//{
+//	int a = 10;
+//	int b = 20;
+//	int sum = 0;
+//	//函数调用
+//	sum = Add(a, b);
+//	printf("%d\n", sum);
+//	return 0;
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
