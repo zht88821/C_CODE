@@ -115,7 +115,6 @@
 
 void bubble_sort(int arr[],int sz)//升序的冒泡排序函数
 {
-	//	确定冒泡排序的趟数
 	int i = 0;
 	for (i = 0; i < sz - 1; i++)
 	{
@@ -145,7 +144,7 @@ int main()
 	int arr[] = { 9,8,7,6,5,4,3,2,1,0 };
 	int i = 0;
 	int sz = sizeof(arr) / sizeof(arr[0]);
-	//对arr进行排序马，排成升序
+	//对arr进行排序，排成升序
 	//arr是数组，我们对数组arr进行传参，实际上 传递过去的是数组arr首元素的地址
 	bubble_sort(arr, sz);//冒泡排序函数
 	for (i = 0; i < sz; i++)
