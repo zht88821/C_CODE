@@ -32,7 +32,7 @@
 
 //int main()
 //{
-//	char arr1[] = "abc";
+//	char arr1[] = "abc";  //这样初始化最后还有一个'\0'
 //	char arr2[] = { 'a','b','c' };
 //	printf("%d\n", sizeof(arr1));
 //	printf("%d\n", sizeof(arr2));
@@ -42,12 +42,115 @@
 
 //int main()
 //{
-//	char arr[] = "abcdef";
+//	/*char arr[] = "abcdef";
 //	printf("%c\n", arr[3]);
 //	int i = 0;
 //	for (i = 0; i < 6; i++)
 //	{
 //		printf("%c ", arr[i]);
+//	}*/
+//	int arr[] = { 1,2,3,4,5,6,7,8,9,0 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	int i = 0;
+//	for (i = 0; i < sz; i++)
+//	{
+////		printf("%d ", arr[i]);
 //	}
 //	return 0;
 //}
+
+//
+//int main()//一维数组的地址在内存中是连续存放的
+//{
+//	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	int i = 0;
+//	for (i = 0; i < sz; i++)
+//	{
+//		printf("&arr[%d] = %p\n", i, &arr[i]);
+//	}
+//	return 0;
+//}
+
+//int main()//二维数组的初始化
+//{
+//	int arr[3][4] = { {1,2,3},{4,5} };//可以不完全初始化
+//	char ch[5][6];
+//	int arr[][4] = { {1,2,3,4},{5,6,7,8} };//能不指定行，但一定要指定列
+//	return 0;
+//}
+
+//int main()//二维数组的使用
+//{
+//	int arr[3][4] = { {1,2,3},{4,5} };
+//	int i = 0;
+//	for (i = 0; i < 3; i++)
+//	{
+//		int j = 0;
+//		for (j = 0; j < 4; j++)
+//		{
+//			printf("%d ", arr[i][j]);
+//		}
+//		printf("\n");
+//	}
+//	return 0;
+//}
+
+//
+//int main()  //二维数组的地址在内存中也是按顺序连续存放的
+//{
+//	int arr[3][4] = { {1,2,3},{4,5} };
+//	int i = 0;
+//	for (i = 0; i < 3; i++)
+//	{
+//		int j = 0;
+//		for (j = 0; j < 4; j++)
+//		{
+//			printf("&arr[%d][%d] = %p\n", i,j,&arr[i][j]);
+//		}
+//		
+//	}
+//	return 0;
+//}
+
+void bubble_sort(int arr[],int sz)//升序的冒泡排序函数
+{
+	//	确定冒泡排序的趟数
+	int i = 0;
+	for (i = 0; i < sz - 1; i++)
+	{
+		int flag = 1;//假设这一趟要排序的数据已经有序
+		//每一趟冒泡排序
+		int j = 0;
+		for (j = 0; j < sz - 1 - i; j++)
+		{
+			if (arr[j] > arr[j + 1])
+			{
+				int tmp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = tmp;
+				flag = 0;//本趟排序的数据其实不完全有序
+
+			}
+		}
+		if (flag == 1)
+		{
+			break;
+		}
+	}
+}
+
+int main()
+{
+	int arr[] = { 9,8,7,6,5,4,3,2,1,0 };
+	int i = 0;
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	//对arr进行排序马，排成升序
+	//arr是数组，我们对数组arr进行传参，实际上 传递过去的是数组arr首元素的地址
+	bubble_sort(arr, sz);//冒泡排序函数
+	for (i = 0; i < sz; i++)
+	{
+		printf("%d ", arr[i]);
+	}
+	return 0;
+}
