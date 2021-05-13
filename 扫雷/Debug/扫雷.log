@@ -1,0 +1,4 @@
+﻿  game.c
+D:\c语言\C_CODE\扫雷\game.c(203,17): warning C4553: “==”: 未使用表达式结果；是否打算使用“=”?
+D:\c语言\C_CODE\扫雷\game.c(75): warning C4715: “get_mine_count”: 不是所有的控件路径都返回值
+  扫雷.vcxproj -> D:\c语言\C_CODE\扫雷\Debug\扫雷.exe
