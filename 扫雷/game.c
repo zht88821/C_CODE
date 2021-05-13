@@ -1,11 +1,11 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include"game.h"
 
-void InitBoard(char board[ROWS][COLS], int rows, int cols,char set)
-{
+void InitBoard(char board[ROWS][COLS], int rows, int cols,char set)//初始化棋盘的函数
+{                                                             //形参set用来指定要初始化的字符
 	int i = 0;
 	int j = 0;
-	for (i = 0; i < rows; i++)
+	for (i = 0; i < rows; i++)   
 	{
 		for (j = 0; j < cols; j++)
 		{
@@ -15,7 +15,7 @@ void InitBoard(char board[ROWS][COLS], int rows, int cols,char set)
 }
 
 
-void DisplayBoard(char board[ROWS][COLS], int row, int col)
+void DisplayBoard(char board[ROWS][COLS], int row, int col)//打印棋盘的函数
 {
 	int i = 0;
 	int j = 0;
@@ -27,7 +27,7 @@ void DisplayBoard(char board[ROWS][COLS], int row, int col)
 	printf("\n");
 	for (i = 1; i <= row; i++)
 	{
-		printf("%d ", i);
+		printf("%d ", i);//打印行号
 		for (j = 1; j <= col; j++)
 		{
 			printf("%c ", board[i][j]);
@@ -37,12 +37,12 @@ void DisplayBoard(char board[ROWS][COLS], int row, int col)
 }
 
 
-void SetMine(char board[ROWS][COLS], int row, int col)
+void SetMine(char board[ROWS][COLS], int row, int col)//布置雷的函数
 {
-	int count = EASY_COUNT;
+	int count = EASY_COUNT;//设置雷的数量
 	while (count)
 	{
-		int x = rand() % row + 1;//1-9
+		int x = rand() % row + 1;//1-9  用rand()函数设置随机值
 		int y = rand() % col + 1;//1-9
 		if (board[x][y] == '0')
 		{
@@ -59,7 +59,7 @@ void SetMine(char board[ROWS][COLS], int row, int col)
 //'1' - '0' = 1
 //'3' - '0' = 3
 //ASCII码表中 字符数字 减去 字符‘0’ 等于 被减数数字。
-int get_mine_count(char mine[ROWS][COLS], int x, int y)
+int get_mine_count(char mine[ROWS][COLS], int x, int y)//计算(x,y)周围一圈共有多少个雷
 {
 	if (x >= 1 && x <= ROW && y >= 1 && y <= COL)//防止x,y超出范围
 	{
@@ -70,16 +70,16 @@ int get_mine_count(char mine[ROWS][COLS], int x, int y)
 			mine[x + 1][y] +
 			mine[x + 1][y + 1] +
 			mine[x][y + 1] +
-			mine[x - 1][y + 1] - 8 * '0';
+			mine[x - 1][y + 1] - 8 * '0';//函数返回值为int,要减去'0’
 	}
 }
 
 
-void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
+void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col) //排查雷的函数
 {
 	int cnt = ROW * COL - EASY_COUNT;//记录有多少个非雷位置
-	int time = 1;
-	int over = 0;
+	int time = 1;//用来之后判断是否第一步就踩到雷
+	int over = 0;//用来之后判断是否结束
 	int choose = 0;
 	while (1)
 	{
@@ -87,8 +87,8 @@ void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 		scanf("%d", &choose);
 		switch (choose)
 		{
-		case 1:
-			while (1)    //排雷的循环
+		case 1:           //排雷的循环
+			while (1)   
 			{
 				printf("请输入排雷的坐标\n");
 				int x = 0;
@@ -98,7 +98,7 @@ void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 				{
 					printf("坐标非法,请重新输入\n");
 				}
-				else if(show[x][y] != '*')
+				else if(show[x][y] != '*')//所输入坐标被标记或已被排查的情况下
 				{
 					if (show[x][y] == '#')
 					{
@@ -118,7 +118,7 @@ void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 						if (time)//如果第一步就遇见雷，则重置这个雷的位置
 						{
 							mine[x][y] = '0';
-							while (1)
+							while (1)//第一步踩雷 重置雷
 							{
 								int x1 = rand() % row + 1;
 								int y1 = rand() % col + 1;
@@ -186,7 +186,7 @@ void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 					break;
 				}
 			}
-			break;
+			break;//跳出switch语句
 		case 3:
 			printf("请输入要取消标记的坐标\n");
 			while (1)
@@ -199,26 +199,26 @@ void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 					printf("坐标越界，请重新输入\n");
 					break;
 				}
-				else if (show[x][y] == '*')
+				else if (show[x][y] != '#')
 				{
 					printf("未曾标记，操作失败\n");
 					break;
 				}
 				else if (show[x][y] == '#')
 				{
-					show[x][y] == '*'; //取消标记
+					show[x][y] = '*'; //取消标记
 					DisplayBoard(show, row, col);
 					break;
 				}
 
 			}
-			break;
+			break;//跳出switch语句
 		default:
 			printf("输入错误，请重新输入\n");
-			break;
+			break;//跳出switch语句
 		}
 		
-	end:
+	end://跳转语句
 		if (over)
 		{
 			printf("你失败了，游戏结束\n");
@@ -237,7 +237,7 @@ void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 
 
 
-int Clean(char mine[ROWS][COLS], char show[ROWS][COLS], int x, int y) //判断当前位置周围有没有雷
+int Clean(char mine[ROWS][COLS], char show[ROWS][COLS], int x, int y) //判断当前位置周围有没有雷并清除不是雷的位置
 {
 	int count = 0;    //记录展开格子数
 	for (int i = x - 1; i <= x + 1 && i >= 0 && i <= ROW; i++)
@@ -262,5 +262,5 @@ int Clean(char mine[ROWS][COLS], char show[ROWS][COLS], int x, int y) //判断当前
 			}
 		}
 	}
-	return count;
+	return count;//返回展开的格子数
 }

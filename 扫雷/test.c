@@ -2,7 +2,7 @@
 #include"game.h"
 
 
-void menu()
+void menu()//菜单打印函数
 {
 	printf("*******************************************\n");
 	printf("**************    1. play    **************\n");
@@ -14,18 +14,17 @@ void menu()
 void game()
 {
 	//雷的信息存储
-	//1.布置好的雷的信息
-	char mine[ROWS][COLS] = { 0 };//11*11
-	//2.排查出的雷的信息
+	//1.布置好的雷的信息的棋盘
+	char mine[ROWS][COLS] = { 0 };//11*11 
+	//2.排查出的雷的信息的棋盘
 	char show[ROWS][COLS] = { 0 };
 	//初始化
 	InitBoard(mine,ROWS,COLS,'0');
 	InitBoard(show, ROWS, COLS,'*');
-	//打印棋盘
-	/*DisplayBoard(mine,ROW,COL);*/
-	DisplayBoard(show, ROW, COL);
 	//布置雷
-	SetMine(mine,ROW,COL);
+	SetMine(mine, ROW, COL);
+	//打印棋盘
+	DisplayBoard(show, ROW, COL);
 	//扫雷
 	FindMine(mine,show ,ROW,COL);
 
@@ -38,10 +37,10 @@ void test()
 	srand((unsigned int)time(NULL));  //rand函数设置时间戳
 	do
 	{
-		menu();
+		menu();//打印菜单
 		printf("请选择:>");
 		scanf("%d", &input);
-		switch (input)
+		switch (input)//游戏选项
 		{
 		case 1:
 			printf("开始游戏\n");
