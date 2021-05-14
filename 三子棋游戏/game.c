@@ -2,7 +2,7 @@
 #include"game.h"
 
 
-void InitBoard(char board[ROW][COL], int row, int col)
+void InitBoard(char board[ROW][COL], int row, int col)//初始化棋盘的函数
 {
 	int i = 0;
 	int j = 0;
@@ -16,10 +16,10 @@ void InitBoard(char board[ROW][COL], int row, int col)
 }
 
 
-void DisplayBoard(char board[ROW][COL], int row, int col)
+void DisplayBoard(char board[ROW][COL], int row, int col)//打印棋盘的函数
 {
 	int i = 0;
-	for (i = 0; i < row; i++)
+	for (i = 0; i < row; i++)  
 	{
 		int j = 0;
 		for (j = 0; j < col; j++)
@@ -46,7 +46,7 @@ void DisplayBoard(char board[ROW][COL], int row, int col)
 
 
 
-void PlayerMove(char board[ROW][COL], int row, int col)
+void PlayerMove(char board[ROW][COL], int row, int col)//玩家走棋的函数
 {
 	int x = 0;
 	int y = 0;
@@ -77,14 +77,14 @@ void PlayerMove(char board[ROW][COL], int row, int col)
 
 
 
-void ComputerMove(char board[ROW][COL], int row, int col)
+void ComputerMove(char board[ROW][COL], int row, int col)//电脑走棋的函数
 {
 	int x = 0;
 	int y = 0;
 	printf("电脑走:>\n");
 	while (1)
 	{
-		x = rand() % row;
+		x = rand() % row;//用rand()函数实现随机走
 		y = rand() % col;
 		if (board[x][y] == ' ')
 		{
@@ -145,5 +145,5 @@ char IsWin(char board[ROW][COL], int row, int col)
 	{
 		return 'Q';
 	}
-	return 'C';
+	return 'C';//都不是的情况，就继续游戏
 }

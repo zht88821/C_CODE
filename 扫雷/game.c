@@ -237,7 +237,7 @@ void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col) //
 
 
 
-int Clean(char mine[ROWS][COLS], char show[ROWS][COLS], int x, int y) //判断当前位置周围有没有雷并清除不是雷的位置
+int Clean(char mine[ROWS][COLS], char show[ROWS][COLS], int x, int y) //判断当前周围有没有雷，并清除不是雷的位置
 {
 	int count = 0;    //记录展开格子数
 	for (int i = x - 1; i <= x + 1 && i >= 0 && i <= ROW; i++)

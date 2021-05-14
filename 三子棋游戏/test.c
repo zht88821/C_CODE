@@ -2,7 +2,7 @@
 #include"game.h"
 //测试三子棋游戏
 
-void menu()
+void menu()//打印菜单的函数
 {
 	printf("*****************************************\n");
 	printf("******   1. play        0. exit   *******\n");
@@ -12,7 +12,7 @@ void menu()
 //游戏的整个实现
 void game()
 {
-	char ret = 0;
+	char ret = 0;//用来接收判断游戏情况的字符
 	//数组-存放走出的棋盘信息
 	char board[ROW][COL] = { 0 };//初始棋盘全为空格
 	InitBoard(board,ROW,COL);//初始化棋盘
@@ -66,6 +66,7 @@ void test()
 		switch (input)
 		{
 		case 1:
+			printf("开始游戏\n");
 			game();
 			break;
 		case 0:
