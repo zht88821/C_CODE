@@ -122,6 +122,115 @@
 //}
 
 
+//void print_table(int n)
+//{
+//	int i = 0;
+//	for (i = 1; i <= n; i++)
+//	{
+//		int j = 0;
+//		for (j = 1; j <= i; j++)
+//		{
+//			printf("%d*%d=%-3d ", i, j, i * j);
+//		}
+//		printf("\n");
+//	}
+//}
+//
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	print_table(n);
+//	return 0;
+//}
 
 
+//int my_strlen(char* arr)//求字符串长度的函数
+//{
+//	int count = 0;
+//	while (*arr != '\0')
+//	{
+//		count++;
+//		arr++;
+//	}
+//	return count;
+//}
+//
+//
+//void reverse_string(char* arr)//递归方法使一个字符数组倒序
+//{
+//	//第一步
+//	char tmp = arr[0];
+//	int len = my_strlen(arr);
+//	arr[0] = arr[len - 1];
+//	//第二步， 第二步又可递归
+//	arr[len - 1] = '\0';
+//	if (my_strlen(arr + 1) >= 2)
+//		reverse_string(arr + 1);
+//	//第三步
+//	arr[len - 1] = tmp;
+//
+//}
+//
+//
+//int main()
+//{
+//	char arr[] = "abcdefg";//gfedcba
+//	reverse_string(arr);
+//	printf("%s\n", arr);
+//
+//	return 0;
+//}
 
+
+//输入1729 ，输出1+7+2+9=19
+//DigitSum(1729)
+//DigitSum(172) + 1729 % 10
+//DigitSum(17) + 172 % 10 + 1729 % 10
+//DigitSum(1) + 17 % 10 + 172 % 10 + 1729 % 10
+//1+7+2+9
+//int DigitSum(unsigned int num)//用递归方法求一个正整数十进制各位相加之和
+//{
+//	if (num > 9)
+//	{
+//		return DigitSum(num / 10) + num % 10;
+//	}
+//	else
+//	{
+//		return num;
+//	}
+//}
+//	
+//
+//int main()
+//{
+//	unsigned int num = 0;
+//	scanf("%d", &num);
+//	int ret = DigitSum(num);
+//	printf("ret = %d\n", ret);
+//
+//	return 0;
+//}
+
+
+double Pow(int n, int k)//用递归函数求n的k次方
+{
+	//n*k = n * n^(k-1)
+	if (k < 0)
+		return(1.0 / (Pow(n, -k)));
+	else if (k == 0)
+		return 1;
+	else
+		return n * Pow(n, k - 1);
+}
+
+int main()
+{
+	int n = 0;
+	int k = 0;
+	scanf("%d%d", &n, &k);
+	double ret = Pow(n, k);
+	printf("ret = %lf\n", ret);
+
+	return 0;
+}
