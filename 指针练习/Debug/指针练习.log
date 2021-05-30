@@ -1,0 +1,3 @@
+﻿D:\vs  IDE\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(519,5): warning MSB8028: 中间目录(Debug\)包含从另一个项目(指针练习.vcxproj)共享的文件。   这会导致错误的清除和重新生成行为。
+  test.c
+  指针练习.vcxproj -> D:\c语言\C_CODE\指针练习\Debug\作业练习.exe
