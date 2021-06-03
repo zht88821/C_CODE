@@ -263,3 +263,85 @@
 //
 //	return 0;
 //}
+
+
+
+//int main()//strtok函数的使用    用于分割字符串
+//{
+//	/*char* strtok(char* strToken, const char* strDelimit);*/  //第一个参数是需要分割的字符串
+//	char arr[] = "zpw@bitedu.tech";                            //第二个参数是分割符的集合
+//	char* p = "@.";
+//
+//	char buf[1024] = { 0 };
+//	strcpy(buf, arr);
+//	//切割buf中的字符串
+//
+//	char* ret = NULL;
+//
+//	for (ret = strtok(buf, p); ret != NULL; ret = strtok(NULL, p))
+//	{
+//		printf("%s\n", ret);
+//	}
+//
+//	return 0;
+//}
+
+
+
+#include <errno.h>
+
+//int main()//strerror函数的使用
+//{
+//	//错误码  错误信息
+//	//0 -     No error
+//	//1 -     Operation not permitted
+//	//2 -     No such file or directory
+//	//...
+//	//errno 是一个全局的错误码的变量
+//	//当C语言的库函数在执行过程中，发生了错误，就会把对应的错误码，赋值到errno中
+//
+//	//char*str = strerror(errno);
+//	//printf("%s\n", str);
+//
+//	//打开文件
+//	FILE* pf = fopen("test.txt", "r");//打开test.txt文件
+//
+//	if (pf == NULL)
+//	{
+//		printf("%s\n", strerror(errno));
+//	}
+//	else
+//	{
+//		printf("open file success\n");
+//	}
+//
+//	return 0;
+//}
+
+
+
+#include <ctype.h>
+//
+//int main()
+//{
+//	//char ch = '2';
+//	////int ret = islower(ch);//字符分类函数     判断是否为小写字母a-z
+//	//int ret = isdigit(ch);//字符分类函数   判断是否为1-9数字
+//	//printf("%d\n", ret);
+//
+//	//char ch = tolower('q');//字符转换函数    转为小写
+//	//char ch = toupper('q');
+//	//putchar(ch);
+//	char arr[] = "I Am A Student";
+//	int i = 0;
+//	while (arr[i])
+//	{
+//		if (isupper(arr[i]))
+//		{
+//			arr[i] = tolower(arr[i]);
+//		}
+//		i++;
+//	}
+//	printf("%s\n", arr);
+//	return 0;
+//}
