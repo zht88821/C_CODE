@@ -345,3 +345,119 @@
 //	printf("%s\n", arr);
 //	return 0;
 //}
+
+
+
+//C语言标准:
+//memcpy 只要处理不重叠的内存拷贝就可以
+//memmove 处理重叠内存的拷贝
+
+//void* my_memmove(void* dest, void* src, size_t num)//模拟实现memmove函数
+//{
+//	void* ret = dest;
+//	assert(dest != NULL);
+//	assert(dest != NULL);
+//
+//	if (dest < src)// 当目的指针在要拷贝的字符串指针左边  从前往后打印
+//	{
+//		while (num--)
+//		{
+//			*(char*)dest = *(char*)src;
+//			++(char*)dest;
+//			++(char*)src;
+//		}
+//	}
+//	else if (dest >= src)//当目的指针不在要拷贝的字符串指针左边  从后往前打印
+//	{
+//		while (num--)
+//		{
+//			*((char*)dest + num) = *((char*)src + num);
+//		}
+//	}
+//	return ret;
+//}
+//
+//void* my_memcpy(void* dest, const void* src, size_t num)//模拟实现memcpy函数 - 内存拷贝函数
+//{//第三个参数num代表拷贝的字节数
+//	void* ret = dest;
+//	assert(dest != NULL);
+//	assert(dest != NULL);
+//
+//	while (num--)
+//	{
+//		*(char*)dest = *(char*)src;
+//		++(char*)dest;//++的优先级比强制类型转换高，所以前置++
+//		++(char*)src;
+//	}
+//	return ret;
+//}
+
+
+//struct S
+//{
+//	char name[20];
+//	int age;
+//};
+//
+//int main()//测试my_memcpy函数
+//{
+//	int arr1[] = { 1,2,3,4,5 };
+//	int arr2[5] = { 0 };
+//	struct S arr3[] = { {"张三",20},{"李四",30} };
+//	struct S arr4[3] = { 0 };
+//
+//	my_memcpy(arr2, arr1, sizeof(arr1));
+//	my_memcpy(arr4, arr3, sizeof(arr3));
+//
+//	return 0;
+//}
+
+
+//int main()//测试my_memmove函数
+//{
+//	int arr1[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//
+//	my_memmove(arr1, arr1 + 2, 5 * sizeof(arr1[0]));// 3 4 5 6 7 6 7 8 9 10 
+//	int i = 0;
+//	for (i = 0; i < 10; i++)
+//	{
+//		printf("%d ",arr1[i]);
+//	}
+//	
+//	//my_memmove(arr1 + 5, arr1 + 2, 5 * sizeof(arr1[0]));//1 2 3 4 5 3 4 5 6 7
+//	//int i = 0;
+//	//for (i = 0; i < 10; i++)
+//	//{
+//	//	printf("%d ", arr1[i]);
+//	//}
+//
+//
+//	return 0;
+//}
+
+
+
+//int main()//memcmp函数的使用
+//{
+//	int arr1[] = { 1,2,3,4,5 };
+//	int arr2[] = { 1,2,5,4,3 };
+//
+//	int ret = memcmp(arr1, arr2, 9);
+//	printf("%d\n", ret);
+//
+//
+//	return 0;
+//}
+//
+//
+////meset - 内存设置
+//
+//int main()
+//{
+//	char arr1[10] = { 0 };
+//	memset(arr1, "#", 10);
+//	int arr2[10] = { 0 };
+//	memset(arr2, 1, 10);
+//
+//	return 0;
+//}
