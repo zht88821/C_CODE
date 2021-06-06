@@ -146,7 +146,7 @@
 //
 //	return 0;
 //}
-
+//
 
 
 //int main()//strncpy的用法
@@ -171,7 +171,7 @@
 //	
 //	return 0;
 //}
-
+//
 
 
 ////int strncmp(const char* string1,const char* string2,size_t count);
@@ -292,18 +292,18 @@
 
 //int main()//strerror函数的使用
 //{
-//	//错误码  错误信息
-//	//0 -     No error
-//	//1 -     Operation not permitted
-//	//2 -     No such file or directory
-//	//...
-//	//errno 是一个全局的错误码的变量
-//	//当C语言的库函数在执行过程中，发生了错误，就会把对应的错误码，赋值到errno中
-//
-//	//char*str = strerror(errno);
-//	//printf("%s\n", str);
-//
-//	//打开文件
+////	错误码  错误信息
+////	0 -     No error
+////	1 -     Operation not permitted
+////	2 -     No such file or directory
+////	...
+////	errno 是一个全局的错误码的变量
+////	当C语言的库函数在执行过程中，发生了错误，就会把对应的错误码，赋值到errno中
+////
+////	char*str = strerror(errno);
+////	printf("%s\n", str);
+////
+////	打开文件
 //	FILE* pf = fopen("test.txt", "r");//打开test.txt文件
 //
 //	if (pf == NULL)
@@ -320,7 +320,7 @@
 
 
 
-#include <ctype.h>
+//#include <ctype.h>
 //
 //int main()
 //{
@@ -391,8 +391,8 @@
 //	}
 //	return ret;
 //}
-
-
+//
+//
 //struct S
 //{
 //	char name[20];
@@ -402,12 +402,15 @@
 //int main()//测试my_memcpy函数
 //{
 //	int arr1[] = { 1,2,3,4,5 };
-//	int arr2[5] = { 0 };
+//	int arr2[10] = {4,5,6,4,5,6,7,8,9,10};
 //	struct S arr3[] = { {"张三",20},{"李四",30} };
 //	struct S arr4[3] = { 0 };
+//	char arr5[] = "abcdef";
+//	char arr6[20] = "ghijklmnopq";
 //
 //	my_memcpy(arr2, arr1, sizeof(arr1));
 //	my_memcpy(arr4, arr3, sizeof(arr3));
+//	my_memcpy(arr6, arr5, sizeof(arr5));
 //
 //	return 0;
 //}
@@ -448,16 +451,16 @@
 //
 //	return 0;
 //}
-//
-//
-////meset - 内存设置
-//
-//int main()
-//{
-//	char arr1[10] = { 0 };
-//	memset(arr1, "#", 10);
-//	int arr2[10] = { 0 };
-//	memset(arr2, 1, 10);
-//
-//	return 0;
-//}
+
+
+//meset - 内存设置
+
+int main()
+{
+	char arr1[10] = { 0 };
+	memset(arr1, "#", 10);
+	int arr2[10] = { 0 };
+	memset(arr2, 1, 10);
+
+	return 0;
+}

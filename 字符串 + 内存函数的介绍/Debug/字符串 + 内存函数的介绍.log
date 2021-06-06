@@ -1,2 +1,4 @@
 ﻿  test.c
+D:\C语言\C_CODE\字符串 + 内存函数的介绍\test.c(461,18): warning C4047: “函数”:“int”与“char [2]”的间接级别不同
+D:\C语言\C_CODE\字符串 + 内存函数的介绍\test.c(461,15): warning C4024: “memset”: 形参和实参 2 的类型不同
   字符串 + 内存函数的介绍.vcxproj -> D:\c语言\C_CODE\字符串 + 内存函数的介绍\Debug\字符串 + 内存函数的介绍.exe
