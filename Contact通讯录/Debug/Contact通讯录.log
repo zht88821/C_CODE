@@ -1,0 +1,6 @@
+﻿  contact.c
+D:\C语言\C_CODE\Contact通讯录\contact.c(155,40): warning C4047: “函数”:“const char *”与“char (*)[20]”的间接级别不同
+D:\C语言\C_CODE\Contact通讯录\contact.c(155,21): warning C4024: “strcmp”: 形参和实参 1 的类型不同
+D:\C语言\C_CODE\Contact通讯录\contact.c(155,65): warning C4047: “函数”:“const char *”与“char (*)[20]”的间接级别不同
+D:\C语言\C_CODE\Contact通讯录\contact.c(155,42): warning C4024: “strcmp”: 形参和实参 2 的类型不同
+  Contact通讯录.vcxproj -> D:\C语言\C_CODE\Contact通讯录\Debug\Contact通讯录.exe
