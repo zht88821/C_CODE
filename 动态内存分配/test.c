@@ -332,36 +332,130 @@
 
 
 
-//笔试题4
-//非法访问内存，str提前free，动态开辟的内存还给了os，但是str仍然指向
-//动态开辟的内存，后面的strcpy和printf操作就非法内存访问了
-void Test(void)
-{
-	char* str = (char*)malloc(100);
-	strcpy(str, "hello");
-	free(str);//free后并不会把str置为NULL
-	if (str != NULL)
-	{
-		strcpy(str, "world");
-		printf(str);
-	}
-}
-
-int main()
-{
-	Test();
-
-	return 0;
-}
-
-
+////笔试题4
+////非法访问内存，str提前free，动态开辟的内存还给了os，但是str仍然指向
+////动态开辟的内存，后面的strcpy和printf操作就非法内存访问了
+//void Test(void)
+//{
+//	char* str = (char*)malloc(100);
+//	strcpy(str, "hello");
+//	free(str);//free后并不会把str置为NULL
+//	if (str != NULL)
+//	{
+//		strcpy(str, "world");
+//		printf(str);
+//	}
+//}
+//
+//int main()
+//{
+//	Test();
+//
+//	return 0;
+//}
 
 
 
 
+////柔性数组 
+////结构体的最后一个成员可以是未知大小的数组
+//struct S
+//{
+//	int n;
+//	int arr[];//未知大小的 - 柔性数组成员 - 数组的大小是可以调整的
+//};
+//
+//struct S1
+//{
+//	int n;
+//	int arr[0];//等价于S
+//};
+//
+//int main()
+//{
+//	struct S s;
+//	printf("%d\n", sizeof(s));//含有柔性数组的结构体大小是不包含柔性数组的
+//	struct S* ps = (struct S*)malloc(sizeof(struct S) + 5 * sizeof(int));
+//	//柔性数组可以采用malloc来开辟柔性数组的空间，比如上述就是将int arr[]，开辟了5个成员
+//	ps->n = 100;
+//
+//	int i = 0;
+//	for (i = 0; i < 5; i++)
+//	{
+//		ps->arr[i] = i;//0 1 2 3 4
+//	}
+//	
+//	struct S* ptr = realloc(ps, 44);
+//	//可以使用realloc来调整柔性数组的大小
+//	if (ptr != NULL)
+//	{
+//		ps = ptr;
+//	}
+//	for (i = 5; i < 10; i++)
+//	{
+//		ps->arr[i] = i;
+//	}
+//
+//	for (i = 0; i < 10; i++)
+//	{
+//		printf("%d ", ps->arr[i]);
+//	}
+//
+//	//释放
+//	free(ps);
+//	ps = NULL;
+//
+//	return 0;
+//}
 
 
 
 
 
 
+
+////模拟实现柔性数组
+//struct S
+//{
+//	int n;
+//	int* arr;
+//};
+//int main()
+//{
+//	struct S* ps = (struct S*)malloc(sizeof(struct S));
+//	ps->arr = malloc(5 * sizeof(int));
+//
+//	int i = 0;
+//	for (i = 0; i < 5; i++)
+//	{
+//		ps->arr[i] = i;
+//	}
+//	for (i = 0; i < 5; i++)
+//	{
+//		printf("%d ", ps->arr[i]);
+//	}
+//	printf("\n");
+//
+//	//调整大小
+//	int* ptr = realloc(ps->arr, 10 * sizeof(int));
+//	if (ptr != NULL)
+//	{
+//		ps->arr = ptr;
+//	}
+//	for (i = 5; i < 10; i++)
+//	{
+//		ps->arr[i] = i;
+//	}
+//	for (i = 0; i < 10; i++)
+//	{
+//		printf("%d ", ps->arr[i]);
+//	}
+//	printf("\n");
+//	//释放内存
+//	free(ps->arr);
+//	ps->arr = NULL;
+//	free(ps);
+//	ps = NULL;
+//
+//	return 0;
+//}
